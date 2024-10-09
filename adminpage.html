@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="adminpage.css">
+</head>
+<body>
+ 
+  <div class="container">
+    <h1 class="header">Admin Dashboard</h1>
+    <div class="grid">
+      <div class="panel" id="customer-management">
+        <h2>Customer Management</h2>
+        <div>
+          <label for="customer-name">Customer Name:</label>
+          <input type="text" id="customer-name" placeholder="Customer Name" />
+          <label for="customer-status">Customer Status:</label>
+          <select id="customer-status">
+            <option value="Walk-in">Walk-in</option>
+            <option value="Online">Online</option>
+            <option value="VIP">VIP</option>
+          </select>
+          <label for="vehicle-type">Vehicle Type:</label>
+          <select id="vehicle-type">
+            <option value="car">Car</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="electric">Electric Vehicle</option>
+          </select>
+          <label for="vehicle-plate-customer">Vehicle Plate Number:</label>
+          <input type="text" id="vehicle-plate-customer" placeholder="Vehicle Plate Number" />
+          <button type="button" onclick="addCustomer()">Add Customer</button>
+        </div>
+      </div>
+    </div>
+    <div class="tabular-wrapper">
+      <div class="table-containter">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Ticket Number</th>
+              <th>Time In</th>
+              <th>Time Out</th>
+              <th>Vehicle Plate</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="customer-table-body">
+            <!-- table rows will be added here -->
+          </tbody>
+        </table>
+      </div> 
+    </div>
+  </div>
+  
+  <script>
+    function addCustomer() {
+  // Get the input values from the form
+  const customerName = document.getElementById("customer-name").value;
+  const customerStatus = document.getElementById("customer-status").value;
+  const vehicleType = document.getElementById("vehicle-type").value;
+  const vehiclePlateNumber = document.getElementById("vehicle-plate-customer").value;
+
+  // Generate a unique ticket number
+  const ticketNumber = `TKT-${Math.floor(Math.random() * 100000)}`;
+
+  // Get the current time
+  const currentTime = new Date();
+  const timeIn = currentTime.toLocaleTimeString();
+
+  // Create a new table row
+  const newRow = document.createElement("tr");
+
+  // Create table cells for each column
+  const nameCell = document.createElement("td");
+  nameCell.textContent = customerName;
+
+  const statusCell = document.createElement("td");
+  statusCell.textContent = customerStatus;
+
+  const ticketNumberCell = document.createElement("td");
+  ticketNumberCell.textContent = ticketNumber;
+
+  const timeInCell = document.createElement("td");
+  timeInCell.textContent = timeIn;
+
+  const timeOutCell = document.createElement("td");
+  timeOutCell.textContent = ""; // assume time out will be generated later
+
+  const vehiclePlateCell = document.createElement("td");
+  vehiclePlateCell.textContent = vehiclePlateNumber;
+
+  const actionsCell = document.createElement("td");
+  actionsCell.textContent = ""; // assume actions will be generated later
+
+  // Add the table cells to the new row
+  newRow.appendChild(nameCell);
+  newRow.appendChild(statusCell);
+  newRow.appendChild(ticketNumberCell);
+  newRow.appendChild(timeInCell);
+  newRow.appendChild(timeOutCell);
+  newRow.appendChild(vehiclePlateCell);
+  newRow.appendChild(actionsCell);
+
+  // Append the new row to the table body
+  document.getElementById("customer-table-body").appendChild(newRow);
+}
+</script>
+</body>
+</html>

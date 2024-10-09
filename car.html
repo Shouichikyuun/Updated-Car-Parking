@@ -1,0 +1,91 @@
+<!Doctype Html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Car Parking</title>
+        <link rel="stylesheet" href="car.css">
+    
+    </head>
+    <body>
+        <div class="banner">
+    
+            <div class="navbar">
+                <ul>
+                 <li><a href="#home">Home</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="#Book">Book Now</a></li>
+                  <li><a href="#logout">Log Out</a></li>    
+
+                </ul>
+                
+            </div>
+        </div>
+        <div class="content">
+        <div id="Home"></div>
+
+            <h1>Convenient Parking </h1>
+        </div>
+        
+        
+    
+        </div>
+        <div id="Book"></div>
+        <div class="services">
+            <h1>Book Your Service</h1>
+            <div class="service-boxes">
+                <a href="#service1">
+                    <div class="service-box">
+                        <img src="2wheels.jpg" alt="Service 1 Image">
+                        <h2>Two-Wheeler Vehicle</h2>
+                    </div>
+                </a>
+           <a href="#service2">
+                    <div class="service-box">
+                        <img src="four wheel.jpg" alt="Service 2 Image">
+                        <h2>Four-Wheeler Vehicle</h2>
+                    </div>
+                </a>
+                <a href="#service3">
+                    <div class="service-box">
+                        <img src="elecar.jpg" alt="Service 3 Image">
+                        <h2>Electric Vehicle</h2>
+                    </div>
+                </a>
+            </div>
+
+<div class="modal-form" id="modal-form">
+    <h2>Service Information</h2><br>
+    <form>
+      
+      
+      <input type="text" id="name" required placeholder="Name:"><br>
+      <input type="text" id="name" required placeholder="Vehicle Plate Number"><br>
+      <div class="Time">Time Alloted</div>
+      <input type="Time" id="Time" required placeholder="Time"><br><br>
+     
+     
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  </div>
+            
+        </div>
+          
+        </div>
+        
+       
+        <script>
+            
+            const serviceBox = document.querySelectorAll('.service-box');
+            const modalForm = document.getElementById('modal-form');
+        
+           
+            serviceBox.forEach((box) => {
+              box.addEventListener('click', () => {
+               
+                modalForm.style.display = modalForm.style.display === 'block' ? 'none' : 'block';
+              });
+            });
+          </script>
+    </body>
+    </html>
